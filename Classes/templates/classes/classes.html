@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static  %}
+{%  block title %}
+Gym-Classes
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+{% endblock %}
+{% block content %} 
+
+<nav class="navbar navbar-expand-lg navbar-light"style="background-color:#17a2b8;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon">
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="{% url 'index' %}"style="color:white">PREMIER FITNESS GYM</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'index' %}" style="color:white">HOME <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog' %}"style="color:white">BLOG</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'bmi' %}"style="color:white">BMI</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active " href="{% url 'classes' %}"style="color:white">CLASSES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'contact' %}"style="color:white">CONTACT</a>
+      </li>
+    </ul>
+     <div class="form-inline my-2 my-lg-0">
+      {% comment %} <a class="btn btn-outline-success my-2 my-sm-0" style="color:white"type="submit" href="{% url 'sign-up'%}">SIGNUP</a>
+      <a class="btn btn-outline-success my-2 my-sm-0" style="color:white"type="submit" href="{% url 'sign-in'%}">SIGNIN</a> {% endcomment %}
+    </div></span>
+  </div>
+</nav>
+        <style>
+        .col-sm{
+                text-align: center;
+                background-color:rgba(200, 184, 192, 0.27);
+                border-radius: 10%;
+        }
+        .col-sm:hover{
+          background-color:#17a2b8;
+          
+          border-radius: 10%;
+        }
+        .row img{
+            width:55%;
+            background-color:gray;
+            border-radius: 50%;
+            
+        }
+        .row img:hover{
+            
+                background-color:#17a2b8;
+                border-radius: 50%;
+        }
+            
+            {% comment %} article:hover{
+                color:#17a2b8;
+                text-align: center;
+            } {% endcomment %}
+           
+        </style>
+        <br/>
+<div class="container">
+    <center>
+        <h1>Our Classes</h1>
+    </center>
+    <br/>
+  <div class="row">
+      {% for class in classes %}
+      <br/>
+      <img src="{% static '/images/'|add:class.image %}" alt="{{class.name}}" >
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+    <div class="col-sm">
+     
+      <br/>
+      <br/>
+      <br/>
+      <br/><article>
+        <h1>{{class.name}}</h1>
+        <p style="font-size:20px;color:black;">{{class.trainer}}</p>
+        <p style="font-size:20px;color:black;">{{class.details}}</p></article>
+    </div> <br/><br/>
+    <br/>
+    {% endfor %}
+    
+  </div>
+</div>
+<br/>
+
+<footer class="page-footer font-small blue"style="background-color:#17a2b8; bottom:0;">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2021 Copyright@
+    <a href="premierfitness.com"style="color:white;">premeirfitness</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+{% endblock %}

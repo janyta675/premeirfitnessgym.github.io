@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static  %}
+{%  block title %}
+Blog Details
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+{% endblock %}
+{% block content %} 
+
+<nav class="navbar navbar-expand-lg navbar-light"style="background-color:#17a2b8;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon">
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="{% url 'index' %}"style="color:white">PREMIER FITNESS GYM</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'index' %}" style="color:white">HOME <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'blog' %}"style="color:white">BLOG</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'bmi' %}"style="color:white">BMI</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'classes' %}"style="color:white">CLASSES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'contact' %}"style="color:white">CONTACT</a>
+      </li>
+    </ul>
+     <div class="form-inline my-2 my-lg-0">
+      {% comment %} <a class="btn btn-outline-success my-2 my-sm-0" style="color:white"type="submit" href="{% url 'sign-up'%}">SIGNUP</a>
+      <a class="btn btn-outline-success my-2 my-sm-0" style="color:white"type="submit" href="{% url 'sign-in'%}">SIGNIN</a>
+  {% endcomment %}  </div></span> 
+  </div>
+</nav>
+<br/>
+<section class="left-column" id="summary">
+<style>
+.container{
+background-color:rgba(200, 184, 192, 0.27);
+border-radius:10px;
+width:auto;
+}
+img{
+    height:280px;
+    width:800px;
+    border-radius:40px;
+    background-color:rgba(200, 184, 192, 0.27);
+}
+{% comment %} img:hover{
+    height:280px;
+    width:800px;
+    border-radius:40px;
+    background-color:#17a2b8;
+} {% endcomment %}
+
+.tag{
+    font-size:20px;
+    font-style:italic;
+    border-radius:10%;
+    background-color:#17a2b8;
+}
+
+p{
+    font-style:italic;
+    font-type:bold;
+}
+#person{
+    font-size:20px;
+    font-style:italic;
+    border-radius:10%;
+    color:black;
+    list-style:none;
+}
+#date{
+    font-size:20px;
+    font-style:italic;
+    border-radius:10%;
+    color:black;
+
+}
+.btn{
+    background-color:#17a2b8;
+    color:white;
+    font-size:20px;
+}
+</style>
+<div class="container mb80" >
+    <div class="page-timeline">
+        <div class="vtimeline-point">
+            <div class="vtimeline-icon">
+                
+                <i class="fa fa-image"></i>
+            </div>
+            <div class="vtimeline-block">
+            <div  class="vtimeline-content">
+                    <a href="{% url 'blog-details'  blog.slug %}">
+                        <img  src="{% static 'blog/images/'|add:blog.photo %}" alt="{{blog.title}}" class="img-fluid mb20"></a>
+                    <h3>{{blog.title}}</h3>
+                    <ul class="post-meta list-inline">
+                       {% for tag in tags %}
+                            <li class="list-inline-item">
+                            <span class="tag"><a>{{tag.caption}}</a></span>
+                        </li>
+                        {% endfor %} 
+                        <br/>
+                        <li id="person"class="list-inline-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-person" viewBox="0 0 16 16">
+<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+</svg>
+                            <a style="color:black;"href="mailto:{{blog.author.email}}">{{blog.author}}</a>
+                        </li>
+                         
+                        <li id="date"class="list-inline-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-calendar-event" viewBox="0 0 16 16">
+  <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+</svg>
+                             <a >{{blog.date|date:"D d M Y"}}</a>
+                        </li>
+                       
+                    </ul>
+                    <p id="excerpt">
+                        {{blog.excerpt|linebreaks}}
+                    </p>
+                    
+             <p id="content"> {{blog.blog_content|linebreaks}} </p>     <br>
+                    <a href="{% url 'blog'   %}" class="btn btn-outline-secondary btn-sm">Check Out Other Blogs</a>
+                   
+                </div>
+                <br/>
+
+                 
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+<br/>
+</section>
+
+
+
+<footer class="page-footer font-small blue"style="background-color:#17a2b8;">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2021 Copyright@
+    <a href="premierfitness.com"style="color:white;">premeirfitness</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+{% endblock %}

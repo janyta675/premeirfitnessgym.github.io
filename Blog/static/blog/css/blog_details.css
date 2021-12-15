@@ -1,0 +1,169 @@
+body {
+    background-color: #e7e7e7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Add a gray background color with some padding */
+
+body {
+    font-family: Arial;
+    padding: 20px;
+    background: #f1f1f1;
+}
+
+
+/* Header/Blog Title */
+
+.header {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: white;
+}
+
+
+/* Create two unequal columns that floats next to each other */
+
+
+/* Left column */
+
+.left-column {
+    float: left;
+    align-items: center;
+    width: 75%;
+}
+
+.left-column:hover {
+    color: blue;
+}
+
+a:hover {
+    color: blue;
+}
+
+
+/* Fake image */
+
+.fake-img {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+.fake-img:hover {
+    max-zoom: 20%;
+}
+
+
+/* Add a card effect for articles */
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Footer */
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 800px) {
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+p {
+    font-size: medium;
+    font-style: italic;
+}
+
+.tag {
+    background-color: #186c8d;
+    border-radius: 12px;
+    color: black;
+    padding: 0.5rem 1rem;
+}
+
+.tag:hover {
+    background-color: red;
+}
+
+
+/* Right column */
+
+.right-align {
+    float: right;
+    width: 25%;
+    padding-left: 20px;
+}
+
+.container {
+    background-color: rgba(200, 184, 192, 0.27);
+    border-radius: 10px;
+    width: auto;
+}
+
+img {
+    height: 280px;
+    width: 800px;
+    border-radius: 40px;
+    background-color: rgba(200, 184, 192, 0.27);
+}
+
+img:hover {
+    height: 280px;
+    width: 800px;
+    border-radius: 40px;
+    background-color: #17a2b8;
+}
+
+.tag {
+    font-size: 20px;
+    font-style: italic;
+    border-radius: 10%;
+    background-color: #17a2b8;
+}
+
+p {
+    font-style: italic;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+}
+
+#person {
+    font-size: 20px;
+    font-style: italic;
+    border-radius: 10%;
+    color: black;
+    list-style: none;
+}
+
+#date {
+    font-size: 20px;
+    font-style: italic;
+    border-radius: 10%;
+    color: black;
+}
+
+.btn {
+    background-color: #17a2b8;
+    color: white;
+    font-size: 20px;
+}

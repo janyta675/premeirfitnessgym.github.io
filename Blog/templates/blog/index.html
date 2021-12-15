@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block title %}
+Home
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'blog/css/indexs.css'%}">
+{% comment %} <script src="{% static 'blog/js/slider.js' %}"></script> {% endcomment %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="{% static 'blog/css/indexs.css'%}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Arbutus+Slab&display=swap" rel="stylesheet">
+{% comment %} <script src="{% static 'blog/js/slider.js' %}"></script> {% endcomment %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css">
+
+
+{% endblock %}
+{% block content %} 
+<nav class="navbar navbar-expand-lg navbar-light"style="background-color:#17a2b8;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon">
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="{% url 'index' %}"style="color:white">PREMIER FITNESS GYM</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'index' %}" style="color:white">HOME <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog' %}"style="color:white">BLOG</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'bmi' %}"style="color:white">BMI</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'classes' %}"style="color:white">CLASSES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'contact' %}"style="color:white">CONTACT</a>
+      </li>
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+       </div></span>
+  </div>
+</nav>
+<div class="content">
+    
+    <div class="container">
+      <h2 class="my-5 text-center text-white">
+Welcome to Premeir FItness Gym
+      </h2>
+    </div>
+
+    <div class="site-blocks-cover">
+      <div class="img-wrap">
+        <div class="owl-carousel slide-one-item hero-slider">
+          <div class="slide">
+            <img src="{% static 'index/images/home1.jpg' %}" alt="home img1">  
+          </div>
+          <div class="slide">
+            <img src="{% static 'index/images/home2.jpg' %}" alt="home img1">  
+          </div>
+          <div class="slide">
+            <img src="{% static 'index/images/home3.jpg' %}" alt="home img1">  
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 ml-auto align-self-center">
+            <div class="intro">
+              <div class="heading">
+                <h1 class="text-white font-weight-bold">
+                  TO CRUSH YOUR FITNESS GOALS
+                </h1>
+              </div>
+              <style>
+                .btn{
+                  color:black;
+                  font-size:20px;
+                  font-style:bold;
+                  background-color:gray;
+                }
+                
+              </style>
+              <div class="text sub-text">
+                <p style="font-size:20px;font-style:bold;">Feel Free To Ask Any Question or Help We Are At Your Service</p>
+                <p style="font-size:20px;font-style:bold;">The thing is about Fitlife, You don't just feel like you're part of a gym, you feel like the gym is part of you.</p>
+                <p ><a href="{% url 'blog' %}" target="_blank" class="btn btn-outline-primary btn-md btn-pill">Visit Our Blog</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- END .site-blocks-cover -->
+  </div>
+    
+    
+
+    
+<div class="container">
+        <h1>About Us</h1>
+        <hr>
+        <style>
+          
+        </style>
+        <h2>Have any questions? We'd love to hear from you</h2>
+        <div class="contact-items">
+            <div class="customer-care" >
+               <p style="font-size:20px;color:white;">We have been in operation since 2006, endeavoring to deliver client’s expectations that generally don’t just focus on being fit but to promote wellness.</p>
+               <p></p>
+            </div>
+            <div class="customer-care">
+               <p style="font-size:20px;color:white;">All our programs are tailor-made for each client comes with different needs and goals although in the initial stages a bigger percentage of clients might have similar goals </p>
+            </div>
+            <div class="customer-care">
+               <p style="font-size:20px;color:white;">Goals will change because our genetic composition is not the same or because of medical ground. All in all, we try to make our clients understand that fitness is a lifestyle.</p>
+            </div>
+            <div class="customer-care">
+               <p style="font-size:20px;color:white;">We’ve been doing our part to make our clean clubs even cleaner with Touchless Check-In, Cleaning Stations stocked with disinfectant spray and practicing Social Fitness.</p>
+            </div>
+          </div>
+        </div>
+
+<div class="container">
+        <h1>Contact Us</h1>
+        <hr>
+        <h2>Have any questions? We'd love to hear from you</h2>
+        <div class="contact-items">
+            <div class="write-us">
+               <img src="https://img.icons8.com/external-flatart-icons-lineal-color-flatarticons/64/000000/external-location-achievements-and-badges-flatart-icons-lineal-color-flatarticons.png"/>
+                <h3>Chester House, Koinange Street, Nairobi.</h3>
+                
+            </div>
+            <div class="write-us">
+               <img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/64/000000/external-contact-contact-flatart-icons-flat-flatarticons.png"/>
+                <h3> 020 2240806</h3>
+                <a href="mailto:info@premierfitness.co.ke"> premierfitness@infor.com</a>
+               
+          <!-- <a href="./contact-form.html"> <button id="write">Write</button></a>  u-->
+            </div>
+           
+          </div> <a href="{% url 'contact' %}"> <button id="write">Contact Us </button></a>
+        </div>
+
+          <!-- Footer -->
+<footer class="page-footer font-small blue"style="background-color:#17a2b8;">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2021 Copyright@
+    <a href="premierfitness.com"style="color:white;">premeirfitness</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+
+<!-- Footer -->
+{% endblock %}

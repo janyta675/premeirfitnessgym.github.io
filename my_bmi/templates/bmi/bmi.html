@@ -1,0 +1,88 @@
+{% extends 'base1.html' %} {% load static %} {% block title %}BMI {% endblock %} {% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'bmi/bmi.css'%}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> {% endblock %} {% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#17a2b8;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon">
+  </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="{% url 'index' %}" style="color:white">PREMIER FITNESS GYM</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'index' %}" style="color:white">HOME <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog' %}" style="color:white">BLOG</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active " href="{% url 'bmi' %}" style="color:white">BMI</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{% url 'classes' %}" style="color:white">CLASSES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{% url 'contact' %}" style="color:white">CONTACT</a>
+            </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+            <!-- {% comment %} <a class="btn btn-outline-success my-2 my-sm-0" style="color:white" type="submit" href="{% url 'sign-up'%}">SIGNUP</a>
+            <a class="btn btn-outline-success my-2 my-sm-0" style="color:white" type="submit" href="{% url 'sign-in'%}">SIGNIN</a> {% endcomment %} -->
+        </div>
+        </span>
+    </div>
+</nav>
+<h2 style="text-align: center;">What Is BMI?</h2>
+<hr/>
+<p style="text-align: center;font-size:25px;margin:20px;"> BMI is a measurement that takes into account your height, and weight to produce a calculation. This calculation is a measurement of your body size and can be used to determine how your body weight is related to your height.</p>
+
+
+<form class="container" method="post">
+
+    {% csrf_token %}
+    <h1>BMI Calculator</h1>
+    <label>
+            <input  type="floatformat" name="height" placeholder="Enter Your Height in Inches: ">
+        </label>
+    <label>
+            <input  type="floatformat" name="weight" placeholder="Enter Your Weight in Pounds: ">
+        </label>
+    <button type="submit" onclick="Calculate()">Calculate BMI</button>
+
+    <div class="bmi-value">
+        <h4>BMI Value: </h4>
+        <div name="bmioutput">{{bmi_result}}</div>
+    </div>
+    <div class="status">
+        <h4>Status: </h4>
+        <div name="bmistatus">{{status}}</div>
+    </div>
+
+</form>
+
+
+<h1>Checkout What your BMI says about your health</h1>
+<hr/>
+<table id="bmi">
+    <tr>
+        <th style="text-align:center;">BMI Measurement</th>
+        <th style="text-align:center;">Weight Category</th>
+        <th style="text-align:center;">Health Risk Related to BMI Measurement</th>
+    </tr>{% for bmi_b in my_bmi %} {% include 'bmi/includes/my-bmi.html' %} {% endfor %}
+
+</table>
+
+
+
+
+
+<footer class="page-footer font-small blue" style="background-color:#17a2b8;">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2021 Copyright@
+        <a href="premierfitness.com" style="color:white;">premeirfitness</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+{% endblock %}

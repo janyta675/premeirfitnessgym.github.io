@@ -1,0 +1,52 @@
+.container {
+    background-color: rgba(200, 184, 192, 0.27);
+    border-radius: 10px;
+    width: auto;
+}
+
+img {
+    height: 280px;
+    width: 800px;
+    border-radius: 40px;
+    background-color: rgba(200, 184, 192, 0.27);
+}
+
+img:hover {
+    height: 280px;
+    width: 800px;
+    border-radius: 40px;
+    background-color: #17a2b8;
+}
+
+.tag {
+    font-size: 20px;
+    font-style: italic;
+    border-radius: 10%;
+    background-color: #17a2b8;
+}
+
+p {
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#person {
+    font-size: 20px;
+    font-style: italic;
+    border-radius: 10%;
+    color: black;
+    list-style: none;
+}
+
+#date {
+    font-size: 20px;
+    font-style: italic;
+    border-radius: 10%;
+    color: black;
+}
+
+.btn {
+    background-color: #17a2b8;
+    color: white;
+    font-size: 20px;
+}
